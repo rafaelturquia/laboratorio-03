@@ -41,3 +41,8 @@ Sistema de Moeda Estudantil.
 ## Diagrama de classe e pacotes
 
 ![Diagrama_de_classe_e_Pacotes](./projeto/Print%20-%20Diagrama%20de%20Pacotes%20e%20Classes.png)
+
+
+## Diagrama de Componentes
+
+![Diagrama_de_componentes](./projeto/Diagrama%20de%20Componentes.png)
