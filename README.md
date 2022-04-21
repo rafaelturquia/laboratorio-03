@@ -37,3 +37,7 @@ Sistema de Moeda Estudantil.
 * US15 - Como Professor, eu quero verificar o saldo, para saber quantas moedas ainda possuo.
 * US16 - Como Professor, eu quero informar o motivo do envio de moedas, para descrever o motivo da transação.
 * US17 - Como Professor, eu quero consultar extrato, para saber os alunos que enviei moedas. 
+
+## Diagrama de classe e pacotes
+
+![Diagrama_de_classe_e_Pacotes](./projeto/Print%20-%20Diagrama%20de%20Classes%20e%20Pacotes.png)
