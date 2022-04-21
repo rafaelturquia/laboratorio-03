@@ -45,4 +45,4 @@ Sistema de Moeda Estudantil.
 
 ## Diagrama de Componentes
 
-![Diagrama_de_componentes](./projeto/Diagrama%20de%20Componentes.png)
+![Diagrama_de_componentes](./projeto/Print%20-%20Diagrama%20de%20Componentes.png)
