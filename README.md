@@ -10,7 +10,7 @@
 
 - [Diagrama de Componentes](#diagrama-de-componentes)
 
-- [Diagrama de Caso De Uso](#diagrama-de-implantacao)
+- [Diagrama de Implantação](#diagrama-de-implantacao)
 
 ## Definições
 
