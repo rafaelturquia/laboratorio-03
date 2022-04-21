@@ -6,9 +6,11 @@
 
 - [Histórias do Usuário](#histórias-do-usuário)
 
-- [Diagrama de Classes e Pacotes](#diagrama_de_classes_e_pacotes)
+- [Diagrama de Classes e Pacotes](#diagrama-de-classes-e-pacotes)
 
-- [Diagrama de Componentes](#diagrama_de_componentes)
+- [Diagrama de Componentes](#diagrama-de-componentes)
+
+- [Diagrama de Caso De Uso](#diagrama-de-implantacao)
 
 ## Definições
 
@@ -46,3 +48,8 @@ Sistema de Moeda Estudantil.
 ## Diagrama de Componentes
 
 ![Diagrama_de_componentes](./projeto/Print%20-%20Diagrama%20de%20Componentes.png)
+
+
+## Diagrama de Implantação
+
+![Diagrama_de_implantacao](./projeto/Print%20-%20Diagrama%20de%20Implantação.png)
