@@ -10,7 +10,11 @@
 
 - [Diagrama de Componentes](#diagrama-de-componentes)
 
-- [Diagrama de Implantação](#diagrama-de-implantacao)
+- [Diagrama de Implantação](#diagrama-de-implantação)
+
+- [Modelagem ER](#modelagem-er)
+
+- [Diagramas de Sequencia](#diagramas-de-sequencia)
 
 ## Definições
 
@@ -40,7 +44,7 @@ Sistema de Moeda Estudantil.
 * US16 - Como Professor, eu quero informar o motivo do envio de moedas, para descrever o motivo da transação.
 * US17 - Como Professor, eu quero consultar extrato, para saber os alunos que enviei moedas. 
 
-## Diagrama de classe e pacotes
+## Diagrama de classes e pacotes
 
 ![Diagrama_de_classe_e_Pacotes](./projeto/Print%20-%20Diagrama%20de%20Pacotes%20e%20Classes.png)
 
@@ -53,3 +57,57 @@ Sistema de Moeda Estudantil.
 ## Diagrama de Implantação
 
 ![Diagrama_de_implantacao](./projeto/Print%20-%20Diagrama%20de%20Implantação.png)
+
+## Modelagem ER
+
+Endereco (pk_id, fk_id_aluno, rua, numero, bairro, cidade)
+
+Usuario (pk_login, senha)
+
+Aluno (pk_id, nome, email, CPF, curso, fk_id_sistemaDeMoeda, fk_usuario)
+
+Professor (pk_id, nome, cpf, departamento, fk_usuario)
+
+TransferenciaDePontos (pk_id, motivo, valor, fk_aluno, fk_conta, fk_professor)
+
+Conta (pk_id, saldo, historico, fk_professor, fk_usuario?)
+
+Resgate (pk_id, fk_aluno, fk_vantagem, fk_empresaParceira)
+
+Vantagem (pk_id, preco, descricao, foto, fk_empresaParceira)
+
+EmpresaParceira (pk_CNPJ, nome)
+
+Instituicao (pk_id, fk_sistemaDeMoeda)
+
+SistemaDeMoeda (pk_id)
+
+Semestre (pk_id, fk_SistemaDeMoeda)
+
+![DER](./projeto/DER.png)
+
+## Diagramas de Sequencia
+
+UC01
+![UC01](./projeto/Diagrama%20de%20Sequencia/UC01.png)
+
+UC02-04-05-06-07
+![UC02-04-05-06-07](./projeto/Diagrama%20de%20Sequencia/UC02-04-05-06-07.png)
+
+UC03
+![UC03](./projeto/Diagrama%20de%20Sequencia/UC03.png)
+
+UC08
+![UC08](./projeto/Diagrama%20de%20Sequencia/UC08.png)
+
+UC09
+![UC09](./projeto/Diagrama%20de%20Sequencia/UC09.png)
+
+UC10-11-12
+![UC10-11-12](./projeto/Diagrama%20de%20Sequencia/UC10-11-12.png)
+
+UC13-14-15-16
+![UC13-14-15-16](./projeto/Diagrama%20de%20Sequencia/UC13-14-15-16.png)
+
+UC17
+![UC17](./projeto/Diagrama%20de%20Sequencia/UC17.png)
