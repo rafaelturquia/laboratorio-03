@@ -14,7 +14,7 @@
 
 - [Modelagem ER](#modelagem-er)
 
-- [Diagramas de Sequencia](#diagramas-de-sequencia)
+- [Diagramas de Sequencia do Sistema](#diagramas-de-sequencia-do-Sistema)
 
 ## Definições
 
@@ -76,7 +76,7 @@ Resgate (pk_id, fk_aluno, fk_vantagem, fk_empresaParceira)
 
 Vantagem (pk_id, preco, descricao, foto, fk_empresaParceira)
 
-EmpresaParceira (pk_CNPJ, nome)
+EmpresaParceira (pk_CNPJ, nome, fk_usuario)
 
 Instituicao (pk_id, fk_sistemaDeMoeda)
 
@@ -89,25 +89,25 @@ Semestre (pk_id, fk_SistemaDeMoeda)
 ## Diagramas de Sequencia
 
 UC01
-![UC01](./projeto/Diagrama%20de%20Sequencia/UC01.png)
+![UC01](./projeto/Diagrama%20de%20Sequencia%20do%Sistema/UC01.png)
 
 UC02-04-05-06-07
-![UC02-04-05-06-07](./projeto/Diagrama%20de%20Sequencia/UC02-04-05-06-07.png)
+![UC02-04-05-06-07](./projeto/Diagrama%20de%20Sequenciado%Sistema/UC02-04-05-06-07.png)
 
 UC03
-![UC03](./projeto/Diagrama%20de%20Sequencia/UC03.png)
+![UC03](./projeto/Diagrama%20de%20Sequencia%20do%Sistema/UC03.png)
 
 UC08
-![UC08](./projeto/Diagrama%20de%20Sequencia/UC08.png)
+![UC08](./projeto/Diagrama%20de%20Sequencia%20do%Sistema/UC08.png)
 
 UC09
-![UC09](./projeto/Diagrama%20de%20Sequencia/UC09.png)
+![UC09](./projeto/Diagrama%20de%20Sequencia%20do%Sistema/UC09.png)
 
 UC10-11-12
-![UC10-11-12](./projeto/Diagrama%20de%20Sequencia/UC10-11-12.png)
+![UC10-11-12](./projeto/Diagrama%20de%20Sequencia%20do%Sistema/UC10-11-12.png)
 
 UC13-14-15-16
-![UC13-14-15-16](./projeto/Diagrama%20de%20Sequencia/UC13-14-15-16.png)
+![UC13-14-15-16](./projeto/Diagrama%20de%20Sequencia%20do%Sistema/UC13-14-15-16.png)
 
 UC17
-![UC17](./projeto/Diagrama%20de%20Sequencia/UC17.png)
+![UC17](./projeto/Diagrama%20de%20Sequencia%20do%Sistema/UC17.png)
