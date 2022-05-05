@@ -86,28 +86,28 @@ Semestre (pk_id, fk_SistemaDeMoeda)
 
 ![DER](./projeto/DER.png)
 
-## Diagramas de Sequencia
+## Diagramas de Sequencia do Sistema
 
 UC01
-![UC01](./projeto/Diagrama%20de%20Sequencia%20do%Sistema/UC01.png)
+![UC01](./projeto/Diagrama%20de%20Sequencia%20do%20Sistema/UC01.png)
 
 UC02-04-05-06-07
-![UC02-04-05-06-07](./projeto/Diagrama%20de%20Sequenciado%Sistema/UC02-04-05-06-07.png)
+![UC02-04-05-06-07](./projeto/Diagrama%20de%20Sequenciado%20Sistema/UC02-04-05-06-07.png)
 
 UC03
-![UC03](./projeto/Diagrama%20de%20Sequencia%20do%Sistema/UC03.png)
+![UC03](./projeto/Diagrama%20de%20Sequencia%20do%20Sistema/UC03.png)
 
 UC08
-![UC08](./projeto/Diagrama%20de%20Sequencia%20do%Sistema/UC08.png)
+![UC08](./projeto/Diagrama%20de%20Sequencia%20do%20Sistema/UC08.png)
 
 UC09
-![UC09](./projeto/Diagrama%20de%20Sequencia%20do%Sistema/UC09.png)
+![UC09](./projeto/Diagrama%20de%20Sequencia%20do%20Sistema/UC09.png)
 
 UC10-11-12
-![UC10-11-12](./projeto/Diagrama%20de%20Sequencia%20do%Sistema/UC10-11-12.png)
+![UC10-11-12](./projeto/Diagrama%20de%20Sequencia%20do%20Sistema/UC10-11-12.png)
 
 UC13-14-15-16
-![UC13-14-15-16](./projeto/Diagrama%20de%20Sequencia%20do%Sistema/UC13-14-15-16.png)
+![UC13-14-15-16](./projeto/Diagrama%20de%20Sequencia%20do%20Sistema/UC13-14-15-16.png)
 
 UC17
-![UC17](./projeto/Diagrama%20de%20Sequencia%20do%Sistema/UC17.png)
+![UC17](./projeto/Diagrama%20de%20Sequencia%20do%20Sistema/UC17.png)
