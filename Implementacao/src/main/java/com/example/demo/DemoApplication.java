@@ -1,13 +1,13 @@
-package com.LabDS02;
+package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LabDs02Application {
+public class DemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LabDs02Application.class, args);
+		SpringApplication.run(DemoApplication.class, args);
 	}
 
 }

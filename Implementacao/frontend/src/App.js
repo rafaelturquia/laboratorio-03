@@ -8,34 +8,34 @@ const HEADERS = {
 }
 
 const App = () => {
-  const [clients, setClients] = useState([])
+  const [empresas, setEmpresas] = useState([])
   const [nome, setNome] = useState('')
-  const [senha, setSenha] = useState('')
+  const [cnpj, setCnpj] = useState('')
   const [id, setId] = useState(null)
   const [update, setUpdate] = useState(false)
 
-  useEffect(() => fetch('clients').then(res => res.json())
+  useEffect(() => fetch('empresa/all').then(res => res.json())
     .then(res => {
-      setSenha('')
+      setCnpj('')
       setNome('')
-      setClients(res)
+      setEmpresas(res)
     })
     , [update])
 
-  const salvarUsuario = () => fetch('clients', {
+  const salvarEmpresa = () => fetch('empresa/add', {
     method: 'POST',
     headers: HEADERS,
-    body: JSON.stringify({ name: nome, email: senha })
+    body: JSON.stringify({ nome: nome, cnpj: cnpj })
   }).then(() => setUpdate(!update))
 
-  const editarUsuario = () => fetch('clients/' + id, {
+  const editarEmpresa = () => fetch('empresa/' + id, {
     method: 'PUT',
     headers: HEADERS,
-    body: JSON.stringify({ name: nome, email: senha })
+    body: JSON.stringify({ nome: nome, cnpj: cnpj })
   }).then(() => setUpdate(!update))
 
-  const removeClient = (id, setUpdate, update) => fetch('clients/' + id, {
-    method: "DELETE", 
+  const removerEmpresa = (id, setUpdate, update) => fetch('empresa/' + id, {
+    method: "DELETE",
     headers: HEADERS,
   }).then(() => setUpdate(!update))
 
@@ -43,23 +43,23 @@ const App = () => {
   return (
     <div className="App">
       <div>
-        <h2>{id ? "Editar usuário " + id : "Adicionar usuário"}</h2>
+        <h2>{id ? "Editar empresa " + id : "Adicionar empresa"}</h2>
         <input placeholder="Nome" type="text" value={nome} onChange={e => setNome(e.target.value)} />
-          <input placeholder="Senha" type="password" value={senha} onChange={e => setSenha(e.target.value)} />
-          <button type="button" onClick={() => id ? editarUsuario() : salvarUsuario()}>Salvar usuário</button>
+        <input placeholder="CNPJ" type="text" value={cnpj} onChange={e => setCnpj(e.target.value)} />
+        <button type="button" onClick={() => id ? editarEmpresa() : salvarEmpresa()}>Salvar empresa</button>
       </div>
-        <h2>Usuários cadastrados</h2>
-        {clients.map((e, i) =>  
-          <p key={i}>{e.id + ' - ' + e.name + ' -' + e.name}
-            <button onClick={() => {
-              setId(e.id)
-              setNome(e.name)
-              setSenha(e.email)
-            }}>Editar</button>
-            <button onClick={() => removeClient(e.id, setUpdate, update)}>Excluir</button>
-          </p>)}
-      </div>
-      );
-    }
-    
-    export default App
+      <h2>Empresas cadastrados</h2>
+      {empresas?.map((e, i) =>
+        <p key={i}>{e.id + ' - ' + e.nome + ' -' + e.cnpj}
+          <button onClick={() => {
+            setId(e.id)
+            setNome(e.nome)
+            setCnpj(e.cnpj)
+          }}>Editar</button>
+          <button onClick={() => removerEmpresa(e.id, setUpdate, update)}>Excluir</button>
+        </p>)}
+    </div>
+  );
+}
+
+export default App
