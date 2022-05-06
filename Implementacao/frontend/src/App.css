@@ -42,7 +42,14 @@
   display: flex;
 }
 
-.campos h1, .campos input, .campos button{
+.campos h1, .campos input, .campos button, .campos div{
   margin: 5px auto;
   max-width: 200px;
+}
+
+input{
+  background-color: black;
+  color: #26dafd;
+  border: none;
+  border-bottom: 1px solid #26dafd;
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css';
+import { Button, Line } from 'arwes'
 
 const HEADERS = {
     'Accept': 'application/json',
@@ -44,17 +45,19 @@ const Crud = (props) => {
                             itemAtualizado[prop] = e.target.value
                             setItem(itemAtualizado)
                         }} />)}
-                <button type="button" onClick={() => id ? request('PUT', id) : request('POST', null)}>Salvar {props.oQue}</button>
+                <Button animate layer='success' type="button" onClick={() => id ? request('PUT', id) : request('POST', null)}>Salvar {props.oQue}</Button>
             </div>
             <h2>{props.oQue}s cadastrados</h2>
-            {itens ?.map((itemMapped, i) =>
+            {itens ?.map((itemMapped, i) => <>
                 <p key={i}>{Object.keys(itemMapped).map(prop => itemMapped[prop] + ' - ')}
-                    <button onClick={() => {
+                    <Button animate layer='success' onClick={() => {
                         setId(itemMapped.id)
                         setItem(itemMapped)
-                    }}>Editar</button>
-                    <button onClick={() => { request('DELETE', itemMapped.id) }}>Excluir</button>
-                </p>)}
+                    }}>Editar</Button>
+                    <Button onClick={() => { request('DELETE', itemMapped.id) }}>Excluir</Button>
+                </p>
+                <Line animate layer='success' />
+            </>)}
         </div>
     );
 }
