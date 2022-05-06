@@ -120,5 +120,22 @@ UC17
 ![UC17](./projeto/Diagrama%20de%20Sequencia%20do%20Sistema/UC17.png)
 
 
+## Diagramas de Sequencia
+
 SD Aluno - Atualizar - UC18
 ![SD Aluno - Atualizar - UC18](./projeto/Diagrama%20de%20Sequencia/SD%20Aluno%20-%20Atualizar%20-%20UC18.png)
+
+SD Aluno - Cadastrar - UC09
+![SD Aluno - Cadastrar - UC09](./projeto/Diagrama%20de%20Sequencia/SD%20Aluno%20-%20Cadastrar%20-%20UC09.png)
+
+SD Aluno - Consultar - UC19
+![SD Aluno - Consultar - UC19](./projeto/Diagrama%20de%20Sequencia/SD%20Aluno%20-%20Consultar%20-%20UC19.png)
+
+SD Aluno - Deletar - UC20
+![SD Aluno - Deletar - UC20](./projeto/Diagrama%20de%20Sequencia/SD%20Aluno%20-%20Deletar%20-%20UC20.png)
+
+
+
+
+
+
