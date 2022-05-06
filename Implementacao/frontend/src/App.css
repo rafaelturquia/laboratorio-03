@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.campos{
+  flex-flow: column;
+  display: flex;
+}
+
+.campos h1, .campos input, .campos button{
+  margin: 5px auto;
+  max-width: 200px;
+}

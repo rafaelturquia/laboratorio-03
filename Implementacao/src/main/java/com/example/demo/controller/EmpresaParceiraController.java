@@ -14,9 +14,9 @@ public class EmpresaParceiraController {
     @Autowired
     private EmpresaRepository empresaRepository;
 
-    @PostMapping(path="/add") // Map ONLY POST Requests
-    public @ResponseBody String addNew (@RequestBody EmpresaParceira user) throws URISyntaxException {
-        empresaRepository.save(user);
+    @PostMapping(path="/") // Map ONLY POST Requests
+    public @ResponseBody String addNew (@RequestBody EmpresaParceira empresa) throws URISyntaxException {
+        empresaRepository.save(empresa);
         return "Saved";
     }
 
