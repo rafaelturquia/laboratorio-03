@@ -134,6 +134,21 @@ SD Aluno - Consultar - UC19
 SD Aluno - Deletar - UC20
 ![SD Aluno - Deletar - UC20](./projeto/Diagrama%20de%20Sequencia/SD%20Aluno%20-%20Deletar%20-%20UC20.png)
 
+SD EmpresaParceira - Atualizar - UC23
+![SD EmpresaParceira - Atualizar - UC23](./projeto/Diagrama%20de%20Sequencia/SD%20EmpresaParceira%20-%20Atualizar%20-%20UC23.png)
+
+SD EmpresaParceira - Cadastrar - UC01
+![SD EmpresaParceira - Cadastrar - UC01](./projeto/Diagrama%20de%20Sequencia/SD%20EmpresaParceira%20-%20Cadastrar%20-%20UC01.png)
+
+SD EmpresaParceira - Consultar - UC22
+![SD EmpresaParceira - Consultar - UC22](./projeto/Diagrama%20de%20Sequencia/SD%20EmpresaParceira%20-%20Consultar%20-%20UC22.png)
+
+SD EmpresaParceira - Deletar - UC21
+![SD EmpresaParceira - Deletar - UC21](./projeto/Diagrama%20de%20Sequencia/SD%20EmpresaParceira%20-%20Deletar%20-%20UC21.png)
+
+
+
+
 
 
 
