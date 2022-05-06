@@ -14,6 +14,8 @@
 
 - [Modelagem ER](#modelagem-er)
 
+- [Diagramas de Sequencia do Sistema](#diagramas-de-sequencia-do-Sistema)
+
 - [Diagramas de Sequencia](#diagramas-de-sequencia)
 
 ## Definições
@@ -76,7 +78,7 @@ Resgate (pk_id, fk_aluno, fk_vantagem, fk_empresaParceira)
 
 Vantagem (pk_id, preco, descricao, foto, fk_empresaParceira)
 
-EmpresaParceira (pk_CNPJ, nome)
+EmpresaParceira (pk_CNPJ, nome, fk_usuario)
 
 Instituicao (pk_id, fk_sistemaDeMoeda)
 
@@ -86,28 +88,69 @@ Semestre (pk_id, fk_SistemaDeMoeda)
 
 ![DER](./projeto/DER.png)
 
-## Diagramas de Sequencia
+## Diagramas de Sequencia do Sistema
 
 UC01
-![UC01](./projeto/Diagrama%20de%20Sequencia/UC01.png)
+![UC01](./projeto/Diagrama%20de%20Sequencia%20do%20Sistema/UC01.png)
 
 UC02-04-05-06-07
-![UC02-04-05-06-07](./projeto/Diagrama%20de%20Sequencia/UC02-04-05-06-07.png)
+![UC02-04-05-06-07](./projeto/Diagrama%20de%20Sequencia%20do%20Sistema/UC02-04-05-06-07.png)
 
 UC03
-![UC03](./projeto/Diagrama%20de%20Sequencia/UC03.png)
+![UC03](./projeto/Diagrama%20de%20Sequencia%20do%20Sistema/UC03.png)
 
 UC08
-![UC08](./projeto/Diagrama%20de%20Sequencia/UC08.png)
+![UC08](./projeto/Diagrama%20de%20Sequencia%20do%20Sistema/UC08.png)
 
 UC09
-![UC09](./projeto/Diagrama%20de%20Sequencia/UC09.png)
+![UC09](./projeto/Diagrama%20de%20Sequencia%20do%20Sistema/UC09.png)
 
 UC10-11-12
-![UC10-11-12](./projeto/Diagrama%20de%20Sequencia/UC10-11-12.png)
+![UC10-11-12](./projeto/Diagrama%20de%20Sequencia%20do%20Sistema/UC10-11-12.png)
 
 UC13-14-15-16
-![UC13-14-15-16](./projeto/Diagrama%20de%20Sequencia/UC13-14-15-16.png)
+![UC13-14-15-16](./projeto/Diagrama%20de%20Sequencia%20do%20Sistema/UC13-14-15-16.png)
 
 UC17
-![UC17](./projeto/Diagrama%20de%20Sequencia/UC17.png)
+![UC17](./projeto/Diagrama%20de%20Sequencia%20do%20Sistema/UC17.png)
+
+## Diagramas de Sequencia do Sistema
+
+UC17
+![UC17](./projeto/Diagrama%20de%20Sequencia%20do%20Sistema/UC17.png)
+
+
+## Diagramas de Sequencia
+
+SD Aluno - Atualizar - UC18
+![SD Aluno - Atualizar - UC18](./projeto/Diagrama%20de%20Sequencia/SD%20Aluno%20-%20Atualizar%20-%20UC18.png)
+
+SD Aluno - Cadastrar - UC09
+![SD Aluno - Cadastrar - UC09](./projeto/Diagrama%20de%20Sequencia/SD%20Aluno%20-%20Cadastrar%20-%20UC09.png)
+
+SD Aluno - Consultar - UC19
+![SD Aluno - Consultar - UC19](./projeto/Diagrama%20de%20Sequencia/SD%20Aluno%20-%20Consultar%20-%20UC19.png)
+
+SD Aluno - Deletar - UC20
+![SD Aluno - Deletar - UC20](./projeto/Diagrama%20de%20Sequencia/SD%20Aluno%20-%20Deletar%20-%20UC20.png)
+
+SD EmpresaParceira - Atualizar - UC23
+![SD EmpresaParceira - Atualizar - UC23](./projeto/Diagrama%20de%20Sequencia/SD%20EmpresaParceira%20-%20Atualizar%20-%20UC23.png)
+
+SD EmpresaParceira - Cadastrar - UC01
+![SD EmpresaParceira - Cadastrar - UC01](./projeto/Diagrama%20de%20Sequencia/SD%20EmpresaParceira%20-%20Cadastrar%20-%20UC01.png)
+
+SD EmpresaParceira - Consultar - UC22
+![SD EmpresaParceira - Consultar - UC22](./projeto/Diagrama%20de%20Sequencia/SD%20EmpresaParceira%20-%20Consultar%20-%20UC22.png)
+
+SD EmpresaParceira - Deletar - UC21
+![SD EmpresaParceira - Deletar - UC21](./projeto/Diagrama%20de%20Sequencia/SD%20EmpresaParceira%20-%20Deletar%20-%20UC21.png)
+
+
+
+
+
+
+
+
+
