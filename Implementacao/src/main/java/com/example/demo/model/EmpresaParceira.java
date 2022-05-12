@@ -1,12 +1,10 @@
 package com.example.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity // This tells Hibernate to make a table out of this class
-public class EmpresaParceira {
+//@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "login", "isActive" }) })
+public class EmpresaParceira extends Usuario{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
@@ -14,6 +12,9 @@ public class EmpresaParceira {
     private String nome;
 
     private String cnpj;
+
+    @Column(unique=true)
+    private String login;
 
     public Integer getId() {
         return id;

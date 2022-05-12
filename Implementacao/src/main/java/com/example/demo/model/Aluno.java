@@ -1,15 +1,16 @@
 package com.example.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity // This tells Hibernate to make a table out of this class
-public class Aluno {
+//@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "login", "isActive" }) })
+public class Aluno extends Usuario {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
+
+    @Column(unique=true)
+    private String login;
 
     private String nome;
 
@@ -18,10 +19,6 @@ public class Aluno {
     private String cpf;
 
     private String curso;
-
-    private String login;
-
-    private String senha;
 
     private String instituicao;
 
@@ -73,29 +70,13 @@ public class Aluno {
         this.instituicao = instituicao;
     }
 
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
     public void update(Aluno alunoAtualizado) {
         this.cpf = alunoAtualizado.getCpf();
         this.curso = alunoAtualizado.getCurso();
         this.email = alunoAtualizado.getEmail();
         this.instituicao = alunoAtualizado.getInstituicao();
-        this.login = alunoAtualizado.getLogin();
-        this.senha = alunoAtualizado.getSenha();
+        this.setLogin(alunoAtualizado.getLogin());
+        this.setSenha(alunoAtualizado.getSenha());
         this.nome = alunoAtualizado.getNome();
     }
 }

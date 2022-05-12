@@ -63,3 +63,7 @@ const Crud = (props) => {
 }
 
 export default Crud
+
+
+// simbolo banco de dados
+// empresa parceira logar

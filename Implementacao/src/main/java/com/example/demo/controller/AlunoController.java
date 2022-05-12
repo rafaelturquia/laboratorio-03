@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Aluno;
 import com.example.demo.model.EmpresaParceira;
+import com.example.demo.model.Usuario;
 import com.example.demo.repositories.AlunoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,5 +46,15 @@ public class AlunoController {
         }).orElseThrow(RuntimeException::new);
 
         return "Updated";
+    }
+
+    @PutMapping("/login")
+    public @ResponseBody String logarUsuario (@PathVariable Integer id, @RequestBody Usuario usuario) {
+        Aluno aluno = alunoRepository.findByLogin(usuario.getLogin());
+        if(aluno != null){
+            aluno.logar(usuario.getSenha());
+            alunoRepository.save(aluno);
+            return "Logado";
+        } else return "Senha errada";
     }
 }
