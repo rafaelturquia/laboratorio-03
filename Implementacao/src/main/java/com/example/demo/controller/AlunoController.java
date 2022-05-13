@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Aluno;
-import com.example.demo.model.EmpresaParceira;
 import com.example.demo.model.Usuario;
 import com.example.demo.repositories.AlunoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
