@@ -15,20 +15,23 @@ const Login = (props) => {
     const [role, setRole] = useState(roles[0])
     const [update, setUpdate] = useState(false)
 
-    const request = () => fetch(role + '/', {
+    const request = () => fetch(role + '/login', {
         method: "PUT",
         headers: HEADERS,
         body: JSON.stringify(loginData)
-    }).then(() => {
-        // setItem({})
-        // setId(null)
-        props.setUser({
-            papel: role,
-            login: loginData.login,
-            isLogged: true,
-            id: null
-        })
-        setUpdate(!update)
+    }).then(res => {
+        if (res.status === 200) return res.text()
+        else alert('Houver um problema no login, tente novamente')
+    }).then(res => {
+        if (res !== -1) {
+            props.setUser({
+                papel: role,
+                login: loginData.login,
+                isLogged: true,
+                id: res
+            })
+            setUpdate(!update)
+        } else alert('Senha incorreta tente novamente')
     })
 
     return (<div className="campos">

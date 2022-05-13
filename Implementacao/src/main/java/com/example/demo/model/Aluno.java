@@ -12,6 +12,8 @@ public class Aluno extends Usuario {
     @Column(unique=true)
     private String login;
 
+    private String senha;
+
     private String nome;
 
     private String email;
@@ -78,5 +80,25 @@ public class Aluno extends Usuario {
         this.setLogin(alunoAtualizado.getLogin());
         this.setSenha(alunoAtualizado.getSenha());
         this.nome = alunoAtualizado.getNome();
+    }
+
+    @Override
+    public String getLogin() {
+        return login;
+    }
+
+    @Override
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    @Override
+    public String getSenha() {
+        return senha;
+    }
+
+    @Override
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }

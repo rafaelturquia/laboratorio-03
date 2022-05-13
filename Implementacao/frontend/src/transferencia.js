@@ -1,24 +1,49 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { Button, Line } from 'arwes'
+import { HEADERS } from './crudes'
 
 const Transferencia = (props) => {
-    const [transferencia, setTransferencia] = useState({ motivo: '', valor: 0 })
+    const [transferencia, setTransferencia] = useState({ motivo: '', valor: 0, aluno: null, professor: props.user.id })
+    const [alunos, setAlunos] = useState([])
+    const [aluno, setAluno] = useState(null)
+
+    useEffect(() => fetch('aluno/all').then(res => res.json())
+        .then(res => setAlunos(res)), [])
+    useEffect(() => {
+        if (alunos.length > 0) {
+            setAluno(alunos[0])
+            setTransferencia({...transferencia, aluno: alunos[0].id})
+        }
+    }, [alunos])
+
+    const request = () => fetch('transferenciaDePontos/', {
+        method: 'POST',
+        headers: HEADERS,
+        body: JSON.stringify(transferencia)
+    }).then(() => alert('Transferência realizada'))
 
     return (<div className="campos">
-        <input key={i} placeholder="valor" type="number" value={transferencia.valor}
-            onChange={e => {
-                let itemAtualizado = { ...estado }
-                itemAtualizado.valor = e.target.value
-                setTransferencia(itemAtualizado)
-            }} />
         <h2>Transferência</h2>
-        <input key={i} placeholder="motivo" type="text" value={transferencia.motivo}
-            onChange={e => {
-                let itemAtualizado = { ...estado }
-                itemAtualizado.motivo = e.target.value
-                setTransferencia(itemAtualizado)
-            }} />
-        <Button animate layer='success' type="button" enabled={transferencia.motivo == "" && transferncia.valor !== 0}
-            onClick={() => console.log("transferir")}>Transferir</Button>
+        {alunos.length === 0 && <div>Buscando alunos</div>}
+        {alunos.length > 0 && <><input placeholder="valor" type="number" value={transferencia.valor}
+            onChange={e => setTransferencia({ ...transferencia, valor: e.target.value })} />
+            <input placeholder="motivo" type="text" value={transferencia.motivo}
+                onChange={e => {
+                    let itemAtualizado = { ...transferencia }
+                    itemAtualizado.motivo = e.target.value
+                    setTransferencia(itemAtualizado)
+                }} />
+            {aluno !== null && <div style={{ display: 'flex', flexFlow: 'row' }}>
+                <label style={{ padding: '0px 10px', fontSize: '18px' }}>Aluno:</label>
+                <select value={aluno} onChange={(evt) => {
+                    setAluno(evt.target.value)
+                    setTransferencia({ ...transferencia, aluno_id: evt.target.value.id })
+                }}>
+                    {alunos.map(e => <option value={e.nome}>{e.nome}</option>)}
+                </select></div>}
+            <Button animate layer='success' type="button" enabled={transferencia.motivo == "" && transferencia.valor !== 0}
+                onClick={() => request()}>Transferir</Button>
+        </>}
     </div >
     )
 }

@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import Crud from './crudes'
 import Login from './login'
+import Transferencia from './transferencia'
 import { ThemeProvider, createTheme, Arwes, Puffs } from 'arwes';
+import { HEADERS } from './crudes'
 
 const styling = {
   cursor: 'pointer',
@@ -19,7 +21,18 @@ const userDefault = {
 const App = () => {
   const [page, setPage] = useState("nada")
   const [user, setUser] = useState(userDefault)
-  console.log('login', page)
+  const [update, setUpdate] = useState(false)
+
+  const request = () => fetch(user.papel + '/logout', {
+    method: "PUT",
+    headers: HEADERS,
+    body: JSON.stringify(user)
+  }).then(res => {
+    if (res.status === 200) {
+      setUser(userDefault)
+      setUpdate(!update)
+    }
+  })
 
   return (
     <ThemeProvider theme={createTheme()}>
@@ -33,14 +46,16 @@ const App = () => {
                 <div style={styling} onClick={() => setPage("login")}>Login</div>
               </div>
               {(page === "aluno" || page === "empresa") && <Crud oQue={page} />}
-              {page === "login" && <Login setUser={setUser}/>}
+              {page === "login" && <Login setUser={setUser} />}
             </>}
             {user.isLogged && <>
               <div className="App2">
-              <div style={styling} onClick={() => setPage("extrato")}>Verificar Extrato</div>
-              <div style={styling} onClick={() => setPage("transferencia")}>Realizar transferência</div>
-              <div style={styling} onClick={() => console.log('logout')}>Logout</div>
-            </div></>
+                <div style={styling} onClick={() => setPage("extrato")}>Verificar Extrato</div>
+                {user.papel === "professor" && <div style={styling} onClick={() => setPage("transferencia")}>Realizar transferência</div>}
+                <div style={styling} onClick={() => request()}>Logout</div>
+              </div>
+              {page === "transferencia" && <Transferencia user={user}/>}
+            </>
             }
           </div>
         </Puffs>

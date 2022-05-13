@@ -26,7 +26,7 @@ public class Usuario {
     }
 
     public boolean logar(String senha){
-        if(senha.equals(this.senha)) {
+        if(senha.equals(getSenha())) {
             logado = true;
             return true;
         } else {

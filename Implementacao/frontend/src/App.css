@@ -55,7 +55,9 @@
   max-width: 200px;
 }
 
-input{
+input, select{
+  max-width: 200px;
+  margin: 5px auto;
   background-color: black;
   color: #26dafd;
   border: none;

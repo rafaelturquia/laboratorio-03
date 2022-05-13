@@ -1,8 +1,10 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Aluno;
+import com.example.demo.model.Professor;
 import com.example.demo.model.Usuario;
 import com.example.demo.repositories.AlunoRepository;
+import com.example.demo.repositories.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +16,8 @@ import java.net.URISyntaxException;
 public class AlunoController {
     @Autowired
     private AlunoRepository alunoRepository;
+    @Autowired
+    private ProfessorRepository professorRepository;
 
     @PostMapping(path="/") // Map ONLY POST Requests
     public @ResponseBody String addNew (@RequestBody Aluno aluno) throws URISyntaxException {
@@ -48,12 +52,30 @@ public class AlunoController {
     }
 
     @PutMapping("/login")
-    public @ResponseBody String logarUsuario (@PathVariable Integer id, @RequestBody Usuario usuario) {
+    public @ResponseBody String logarUsuario (@RequestBody Usuario usuario) {
         Aluno aluno = alunoRepository.findByLogin(usuario.getLogin());
         if(aluno != null){
             aluno.logar(usuario.getSenha());
             alunoRepository.save(aluno);
-            return "Logado";
-        } else return "Senha errada";
+            if(aluno.getEstadoLogin()) return "Logado";
+            else return "Senha errada";
+        } else return "Login não encontrado";
+    }
+
+    @PutMapping("/logout")
+    public @ResponseBody String logoutUsuario (@RequestBody Usuario usuario) {
+        Aluno aluno = alunoRepository.findByLogin(usuario.getLogin());
+//        Professor professor = new Professor();
+//        professor.setLogin("professor");
+//        professor.setNome("nome");
+//        professor.setCPF("CPF");
+//        professor.setDepartamento("departamento");
+//        professor.setSenha("senha");
+//        professorRepository.save(professor);
+        if(aluno != null){
+            aluno.deslogar();
+            alunoRepository.save(aluno);
+        }
+        return "Deslogado";
     }
 }
