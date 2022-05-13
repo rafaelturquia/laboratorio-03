@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import './App.css';
 import { Button, Line } from 'arwes'
 
-const HEADERS = {
+export const HEADERS = {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
 }
