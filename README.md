@@ -150,7 +150,7 @@ SD Aluno - Consultar Extrato - UC03
 ![SD Aluno - Consultar Extrato - UC03](./projeto/Diagrama%20de%20Sequencia/SD%20Aluno%20-%20Consultar%20Extrato%20-%20UC03.png)
 
 SD Professor - Consultar Extrato - UC17
-![SD Professor - Consultar Extrato - UC17](./projeto/Diagrama%20de%20Sequencia/SD%20Professor%20-%20Consultar%20Extrato%20-%20UC03.png)
+![SD Professor - Consultar Extrato - UC17](./projeto/Diagrama%20de%20Sequencia/SD%20Professor%20-%20Consultar%20Extrato%20-%20UC17.png)
 
 SD TranferenciaDePontos - UC14
 ![SD TranferenciaDePontos - UC14](./projeto/Diagrama%20de%20Sequencia/SD%20TranferenciaDePontos%20-%20UC14.png)
