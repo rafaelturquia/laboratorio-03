@@ -1,32 +1,37 @@
 package com.example.demo.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "TransferenciaDePontos")
 public class TransferenciaDePontos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     private String motivo;
     private double valor;
 
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "aluno_id", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "aluno_id")
     private Aluno aluno;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "professor_id", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "professor_od")
     private Professor professor;
 
+    public TransferenciaDePontos(Aluno aluno, Professor professor, TransferenciaDePontos transferenciaDePontos) {
+        this.aluno = aluno;
+        this.professor = professor;
+        this.valor = transferenciaDePontos.getValor();
+        this.motivo = transferenciaDePontos.getMotivo();
+    }
+
+    public TransferenciaDePontos(String motivo, Double valor){
+        this.motivo = motivo;
+        this.valor = valor;
+    }
+
+    public TransferenciaDePontos(){}
 
     public String getMotivo() {
         return motivo;
@@ -42,5 +47,29 @@ public class TransferenciaDePontos {
 
     public void setValor(double valor) {
         this.valor = valor;
+    }
+
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
+    }
+
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

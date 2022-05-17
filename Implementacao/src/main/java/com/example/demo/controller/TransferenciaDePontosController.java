@@ -1,6 +1,10 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.Aluno;
+import com.example.demo.model.Professor;
 import com.example.demo.model.TransferenciaDePontos;
+import com.example.demo.repositories.AlunoRepository;
+import com.example.demo.repositories.ProfessorRepository;
 import com.example.demo.repositories.TransferenciaDePontosRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +18,19 @@ import java.net.URISyntaxException;
 public class TransferenciaDePontosController {
     @Autowired
     private TransferenciaDePontosRepository transferenciaDePontosRepository;
+    @Autowired
+    private AlunoRepository alunoRepository;
 
-    @PostMapping(path="/") // Map ONLY POST Requests
-    public @ResponseBody String addNew (@RequestBody TransferenciaDePontos transferenciaDePontos) throws URISyntaxException {
-        transferenciaDePontosRepository.save(transferenciaDePontos);
+    @Autowired
+    private ProfessorRepository professorRepository;
+
+    @PostMapping(path="/{aluno_id}/{professor_id}") // Map ONLY POST Requests
+    public @ResponseBody String addNew (@PathVariable("aluno_id") Integer aluno_id,
+                                        @PathVariable("professor_id") Integer professor_id,
+                                        @RequestBody TransferenciaDePontos transferenciaDePontos) throws URISyntaxException {
+        Aluno aluno = alunoRepository.findById(aluno_id).orElseThrow(() -> new RuntimeException("Aluno não encontrado"));
+        Professor professor = professorRepository.findById(professor_id).orElseThrow(() -> new RuntimeException("Professor não encontrado"));
+        transferenciaDePontosRepository.save(new TransferenciaDePontos(aluno, professor, transferenciaDePontos));
         return "Saved";
     }
 
