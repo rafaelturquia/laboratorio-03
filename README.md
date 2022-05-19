@@ -156,7 +156,8 @@ SD TranferenciaDePontos - UC14
 ![SD TranferenciaDePontos - UC14](./projeto/Diagrama%20de%20Sequencia/SD%20TranferenciaDePontos%20-%20UC14.png)
 
 
-
+SD Usuario - Logar - UC08
+![SD Usuario - Logar - UC08](./projeto/Diagrama%20de%20Sequencia/SD%20Usuario%20-%20Logar%20-%20UC08.png)
 
 
 
