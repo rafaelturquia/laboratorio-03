@@ -21,17 +21,25 @@ const Login = (props) => {
         body: JSON.stringify(loginData)
     }).then(res => {
         if (res.status === 200) return res.text()
-        else alert('Houver um problema no login, tente novamente')
-    }).then(res => {
-        if (res !== -1) {
-            props.setUser({
+        else alert('Houve um problema no login, tente novamente')
+    }).then(resPrev => {
+        try {
+            let res = JSON.parse(resPrev)
+            console.log('res', res)
+            if (res?.usuario_id === "-1") return alert('Usuário não encotrado')
+            if (res?.login !== "true") return alert('Senha incorreta tente novamente')
+            console.log('heeere')
+            let updateUser = {
                 papel: role,
                 login: loginData.login,
                 isLogged: true,
-                id: res
-            })
-            setUpdate(!update)
-        } else alert('Senha incorreta tente novamente')
+                id: res.usuario_id
+            }
+            console.log('updateUser', updateUser)
+            props.setUser(updateUser)
+        } catch{
+            console.log('error on login')
+        }
     })
 
     return (<div className="campos">

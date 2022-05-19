@@ -26,7 +26,7 @@ public class TransferenciaDePontos {
         this.motivo = transferenciaDePontos.getMotivo();
     }
 
-    public TransferenciaDePontos(String motivo, Double valor){
+    public TransferenciaDePontos(String motivo, double valor){
         this.motivo = motivo;
         this.valor = valor;
     }

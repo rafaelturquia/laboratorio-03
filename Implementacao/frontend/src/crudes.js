@@ -8,7 +8,8 @@ export const HEADERS = {
 }
 
 const alunosProps = ["login", "senha", "nome", "cpf", "email", "curso", "instituicao"]
-const empresaProps = ["nome", "cnpj"]
+const empresaProps = ["login", "senha", "nome", "cnpj"]
+const vantagemProps = ["descricao", "valor"]
 
 const Crud = (props) => {
     const [itens, setItens] = useState([])
@@ -16,7 +17,7 @@ const Crud = (props) => {
     const [id, setId] = useState(null)
     const [update, setUpdate] = useState(false)
 
-    useEffect(() => fetch(props.oQue + '/all').then(res => res.json())
+    useEffect(() => fetch(`${props.oQue}/all${props.oQue === 'vantagem' ? "/" + props ?.user ?.id : ""}`).then(res => res.json())
         .then(res => {
             setItem({})
             setItens(res)
@@ -32,20 +33,31 @@ const Crud = (props) => {
         setUpdate(!update)
     })
 
-    const quaisProps = props.oQue === "aluno" ? alunosProps : empresaProps
+    let quaisProps
+    switch (props.oQue) {
+        case 'aluno':
+            quaisProps = alunosProps
+            break
+        case 'empresa':
+            quaisProps = empresaProps
+            break
+        case 'vantagem':
+            quaisProps = vantagemProps
+    }
 
     return (
         <div>
             <div className="campos">
                 <h2>{id ? "Editar " + props.oQue + " " + id : "Adicionar " + props.oQue}</h2>
-                {quaisProps.map((prop, i) =>
-                    <input key={i} placeholder={prop} type="text" value={item[prop]}
-                        onChange={e => {
-                            let itemAtualizado = { ...item }
-                            itemAtualizado[prop] = e.target.value
-                            setItem(itemAtualizado)
-                        }} />)}
-                <Button animate layer='success' type="button" onClick={() => id ? request('PUT', id) : request('POST', null)}>Salvar {props.oQue}</Button>
+                {quaisProps.map((prop, i) => <input key={i} placeholder={prop} type="text" value={item[prop]}
+                    onChange={e => {
+                        let itemAtualizado = { ...item }
+                        itemAtualizado[prop] = e.target.value
+                        setItem(itemAtualizado)
+                    }} />)}
+                {props.oQue === 'vantagem' && <input type="file" name="image" accept="image/png, image/jpeg" />}
+                <Button animate layer='success' type="button" onClick={() => id ?
+                    request('PUT', id) : request('POST', props.oQue === 'vantagem' ? props.user.id : null)}>Salvar {props.oQue}</Button>
             </div>
             <h2>{props.oQue}s cadastrados</h2>
             {itens ?.map((itemMapped, i) => <>
@@ -67,3 +79,4 @@ export default Crud
 
 // simbolo banco de dados
 // empresa parceira logar
+// https://www.codejava.net/frameworks/spring-boot/spring-boot-file-upload-tutorial
