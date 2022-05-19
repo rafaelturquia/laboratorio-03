@@ -159,6 +159,12 @@ SD TranferenciaDePontos - UC14
 SD Usuario - Logar - UC08
 ![SD Usuario - Logar - UC08](./projeto/Diagrama%20de%20Sequencia/SD%20Usuario%20-%20Logar%20-%20UC08.png)
 
+SD Cadastro de Vantagem - UC10
+![SD Cadastro de Vantagem - UC10](./projeto/Diagrama%20de%20Sequencia/SD%20Cadastro%20de%20Vantagem%20-%20UC10.png)
+
+
+SD Listar de Vantagens - UC10
+![SD Cadastro de Vantagem - UC10](./projeto/Diagrama%20de%20Sequencia/SD%20Listar%20de%20Vantagens%20-%20UC02.png)
 
 
 
