@@ -9,7 +9,7 @@ const Transferencia = (props) => {
 
     useEffect(() => fetch('aluno/all').then(res => res.json())
         .then(res => setAlunos(res)), [])
-        
+
     useEffect(() => {
         if (alunos.length > 0) setAluno(alunos[0])
     }, [alunos])
@@ -18,7 +18,9 @@ const Transferencia = (props) => {
         method: 'POST',
         headers: HEADERS,
         body: JSON.stringify(transferencia)
-    }).then(() => alert('Transferência realizada'))
+    })
+        .then(res => res.text())
+        .then(res => alert(res))
 
     return (<div className="campos">
         <h2>Transferência</h2>

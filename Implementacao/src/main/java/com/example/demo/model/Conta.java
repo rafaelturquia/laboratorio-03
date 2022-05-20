@@ -17,8 +17,13 @@ public class Conta {
 
     private double saldo;
 
-    private ArrayList<Object> historico;
+    public Conta(double i) {
+        this.saldo = i;
+    }
 
+    public Conta(){
+        this.saldo = 0;
+    }
 
     public Integer getId() {
         return this.id;
@@ -35,16 +40,6 @@ public class Conta {
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
-
-    public ArrayList<Object> getHistorico() {
-        return this.historico;
-    }
-
-    public void setHistorico(ArrayList<Object> historico) {
-        this.historico = historico;
-    }
-
-
 
 
 }
