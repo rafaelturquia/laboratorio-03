@@ -5,6 +5,7 @@ import Transferencia from './transferencia'
 import { ThemeProvider, createTheme, Arwes, Puffs } from 'arwes';
 import { HEADERS } from './crudes'
 import ListaDeVantagens from './listaDeVantagens';
+import Extrato from './extrato'
 
 const styling = {
   cursor: 'pointer',
@@ -17,6 +18,7 @@ const userDefault = {
   isLogged: false,
   id: null,
   login: null,
+  saldo: 0
 }
 
 const App = () => {
@@ -56,15 +58,16 @@ const App = () => {
             </>}
             {user.isLogged && <>
               <div className="App2">
-                <div style={styling} onClick={() => setPage("extrato")}>Verificar Extrato</div>
+                {(user.papel === "professor" || user.papel === "aluno") && <div style={styling} onClick={() => setPage("extrato")}>Verificar Extrato</div>}
                 {user.papel === "professor" && <div style={styling} onClick={() => setPage("transferencia")}>Realizar transferência</div>}
                 {user.papel === "empresa" && <div style={styling} onClick={() => setPage("vantagem")}>Cadastrar vantagem</div>}
                 {user.papel === "aluno" && <div style={styling} onClick={() => setPage("listaDeVantagens")}>Lista de Vantagens</div>}
                 <div style={styling} onClick={() => request()}>Logout</div>
               </div>
-              {page === "vantagem" && <Crud oQue={page} user={user}/>}
+              {page === "extrato" && <Extrato user={user}/>}
+              {page === "vantagem" && <Crud oQue={page} user={user} />}
               {page === "transferencia" && <Transferencia user={user} />}
-              {page === "listaDeVantagens" && <ListaDeVantagens/>}
+              {page === "listaDeVantagens" && <ListaDeVantagens />}
             </>
             }
           </div>

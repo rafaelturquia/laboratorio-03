@@ -1,10 +1,13 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Aluno;
-import com.example.demo.model.EmpresaParceira;
+import com.example.demo.model.Conta;
+import com.example.demo.model.TransferenciaDePontos;
 import com.example.demo.model.Usuario;
 import com.example.demo.repositories.AlunoRepository;
+import com.example.demo.repositories.ContaRepository;
 import com.example.demo.repositories.ProfessorRepository;
+import com.example.demo.repositories.TransferenciaDePontosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -20,9 +23,16 @@ public class AlunoController {
     private AlunoRepository alunoRepository;
     @Autowired
     private ProfessorRepository professorRepository;
+    @Autowired
+    private ContaRepository contaRepository;
+    @Autowired
+    private TransferenciaDePontosRepository trasnferenciaRepository;
 
     @PostMapping(path="/") // Map ONLY POST Requests
     public @ResponseBody String addNew (@RequestBody Aluno aluno) throws URISyntaxException {
+        Conta conta = new Conta();
+        contaRepository.save(conta);
+        aluno.setConta(conta);
         alunoRepository.save(aluno);
         return "Saved";
     }
@@ -35,6 +45,11 @@ public class AlunoController {
     @GetMapping("/{id}")
     public Aluno getOne(@PathVariable Integer id) {
         return alunoRepository.findById(id).orElseThrow(RuntimeException::new);
+    }
+
+    @GetMapping("/extrato/{id}")
+    public @ResponseBody Iterable<TransferenciaDePontos> getAllTransf(@PathVariable Integer id){
+        return trasnferenciaRepository.findAllByAlunoId(id);
     }
 
     @DeleteMapping("/{id}")
@@ -61,7 +76,10 @@ public class AlunoController {
             res.put("usuario_id", aluno.getId().toString());
             aluno.logar(usuario.getSenha());
             alunoRepository.save(aluno);
-            if (aluno.getEstadoLogin()) res.put("login", "true");
+            if (aluno.getEstadoLogin()) {
+                res.put("login", "true");
+                res.put("saldo", String.valueOf(aluno.getConta().getSaldo()));
+            }
             else res.put("login", "false");
         } else res.put("usuario_id", "-1");
         return res;

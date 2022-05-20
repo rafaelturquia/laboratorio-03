@@ -26,15 +26,15 @@ const Login = (props) => {
         try {
             let res = JSON.parse(resPrev)
             console.log('res', res)
-            if (res?.usuario_id === "-1") return alert('Usuário não encotrado')
-            if (res?.login !== "true") return alert('Senha incorreta tente novamente')
-            console.log('heeere')
+            if (res ?.usuario_id === "-1") return alert('Usuário não encotrado')
+            if (res ?.login !== "true") return alert('Senha incorreta tente novamente')
             let updateUser = {
                 papel: role,
                 login: loginData.login,
                 isLogged: true,
                 id: res.usuario_id
             }
+            if (res ?.saldo) { updateUser.saldo = res ?.saldo}
             console.log('updateUser', updateUser)
             props.setUser(updateUser)
         } catch{

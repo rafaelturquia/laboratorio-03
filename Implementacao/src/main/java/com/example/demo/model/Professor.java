@@ -11,6 +11,10 @@ public class Professor extends Usuario{
     @Column(unique=true)
     private String login;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "conta_id")
+    private Conta conta;
+
     private String senha;
 
     @Override
@@ -69,5 +73,13 @@ public class Professor extends Usuario{
 
     public void setDepartamento(String departamento) {
         this.departamento = departamento;
+    }
+
+    public Conta getConta() {
+        return conta;
+    }
+
+    public void setConta(Conta conta) {
+        this.conta = conta;
     }
 }

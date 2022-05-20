@@ -14,6 +14,10 @@ public class Aluno extends Usuario {
     @Column(unique=true)
     private String login;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "conta_id")
+    private Conta conta;
+
     private String senha;
 
     private String nome;
@@ -82,6 +86,7 @@ public class Aluno extends Usuario {
         this.setLogin(alunoAtualizado.getLogin());
         this.setSenha(alunoAtualizado.getSenha());
         this.nome = alunoAtualizado.getNome();
+        this.conta = alunoAtualizado.getConta();
     }
 
     @Override
@@ -102,5 +107,13 @@ public class Aluno extends Usuario {
     @Override
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public Conta getConta() {
+        return conta;
+    }
+
+    public void setConta(Conta conta) {
+        this.conta = conta;
     }
 }

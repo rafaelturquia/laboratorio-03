@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URISyntaxException;
 
 @Controller
-@RequestMapping(path="/transferenciaDePontos")
+@RequestMapping(path = "/transferenciaDePontos")
 public class TransferenciaDePontosController {
     @Autowired
     private TransferenciaDePontosRepository transferenciaDePontosRepository;
@@ -24,17 +24,23 @@ public class TransferenciaDePontosController {
     @Autowired
     private ProfessorRepository professorRepository;
 
-    @PostMapping(path="/{aluno_id}/{professor_id}") // Map ONLY POST Requests
-    public @ResponseBody String addNew (@PathVariable("aluno_id") Integer aluno_id,
-                                        @PathVariable("professor_id") Integer professor_id,
-                                        @RequestBody TransferenciaDePontos transferenciaDePontos) throws URISyntaxException {
+    @PostMapping(path = "/{aluno_id}/{professor_id}") // Map ONLY POST Requests
+    public @ResponseBody String addNew(@PathVariable("aluno_id") Integer aluno_id,
+                                       @PathVariable("professor_id") Integer professor_id,
+                                       @RequestBody TransferenciaDePontos transferenciaDePontos) throws URISyntaxException {
+        if (transferenciaDePontos.getValor() <= 0) return "Valor inadequado";
         Aluno aluno = alunoRepository.findById(aluno_id).orElseThrow(() -> new RuntimeException("Aluno não encontrado"));
         Professor professor = professorRepository.findById(professor_id).orElseThrow(() -> new RuntimeException("Professor não encontrado"));
+        if (professor.getConta().getSaldo() < transferenciaDePontos.getValor()) return "SAldo insuficiente";
+        aluno.getConta().setSaldo(aluno.getConta().getSaldo() + transferenciaDePontos.getValor());
+        alunoRepository.save(aluno);
+        professor.getConta().setSaldo(professor.getConta().getSaldo() - transferenciaDePontos.getValor());
+        professorRepository.save(professor);
         transferenciaDePontosRepository.save(new TransferenciaDePontos(aluno, professor, transferenciaDePontos));
-        return "Saved";
+        return "Transferencia realizada";
     }
 
-    @GetMapping(path="/all")
+    @GetMapping(path = "/all")
     public @ResponseBody Iterable<TransferenciaDePontos> getAll() {
         return transferenciaDePontosRepository.findAll();
     }
@@ -45,7 +51,7 @@ public class TransferenciaDePontosController {
     }
 
     @DeleteMapping("/{id}")
-    public @ResponseBody String  deleteOne (@PathVariable Integer id) {
+    public @ResponseBody String deleteOne(@PathVariable Integer id) {
         transferenciaDePontosRepository.deleteById(id);
         return "Removed";
     }
