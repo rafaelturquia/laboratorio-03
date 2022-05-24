@@ -20,7 +20,6 @@ public class TransferenciaDePontosController {
     private TransferenciaDePontosRepository transferenciaDePontosRepository;
     @Autowired
     private AlunoRepository alunoRepository;
-
     @Autowired
     private ProfessorRepository professorRepository;
 
@@ -31,7 +30,7 @@ public class TransferenciaDePontosController {
         if (transferenciaDePontos.getValor() <= 0) return "Valor inadequado";
         Aluno aluno = alunoRepository.findById(aluno_id).orElseThrow(() -> new RuntimeException("Aluno não encontrado"));
         Professor professor = professorRepository.findById(professor_id).orElseThrow(() -> new RuntimeException("Professor não encontrado"));
-        if (professor.getConta().getSaldo() < transferenciaDePontos.getValor()) return "SAldo insuficiente";
+        if (professor.getConta().getSaldo() < transferenciaDePontos.getValor()) return "Saldo insuficiente";
         aluno.getConta().setSaldo(aluno.getConta().getSaldo() + transferenciaDePontos.getValor());
         alunoRepository.save(aluno);
         professor.getConta().setSaldo(professor.getConta().getSaldo() - transferenciaDePontos.getValor());

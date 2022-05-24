@@ -67,7 +67,7 @@ const App = () => {
               {page === "extrato" && <Extrato user={user}/>}
               {page === "vantagem" && <Crud oQue={page} user={user} />}
               {page === "transferencia" && <Transferencia user={user} />}
-              {page === "listaDeVantagens" && <ListaDeVantagens />}
+              {page === "listaDeVantagens" && <ListaDeVantagens user={user} setUser={setUser}/>}
             </>
             }
           </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { Line } from 'arwes'
+import { Line, Button } from 'arwes'
+import { HEADERS } from './crudes'
 
 const ListaDeVantagens = (props) => {
     const [itens, setItens] = useState([])
@@ -17,6 +18,12 @@ const ListaDeVantagens = (props) => {
                 <p>{`Valor:${itemMapped.valor}`}</p>
                 <p>{`Descrição: ${itemMapped.descricao}`}</p>
                 <p>{`Empresa: ${itemMapped.empresa.nome}`}</p>
+                {props.user.papel === "aluno" &&
+                    <Button onClick={() => fetch(`resgate/${props.user.id}/${itemMapped.id}`, {
+                        method: 'POST',
+                        headers: HEADERS,
+                    }).then(res => res.text()).then(res => alert(res))}
+                    >Solicitar</Button>}
                 <Line animate layer='success' />
             </React.Fragment>)}
         </div>
