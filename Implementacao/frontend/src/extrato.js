@@ -4,12 +4,19 @@ const Extrato = (props) => {
     const [extrato, setExtrato] = useState([])
     const [resgates, setResgates] = useState([])
 
-    useEffect(() => {fetch(`${props.user.papel}/extrato/${props.user.id}`)
-        .then(res => res.json())
-        .then(res => setExtrato(res))
-        if(props.user.papel === "aluno") fetch(`resgate/aluno/${props.user.id}`)
-        .then(res => res.json())
-        .then(res => setResgates(res))
+    useEffect(() => {
+        fetch(`${props.user.papel}/extrato/${props.user.id}`)
+            .then(res => res.json())
+            .then(res => setExtrato(res))
+        if (props.user.papel === "aluno") {
+            fetch(`resgate/aluno/${props.user.id}`)
+                .then(res => res.json())
+                .then(res => setResgates(res))
+            fetch(`aluno/${props.user.id}`)
+                .then(res => res.json())
+                .then(res => props.setUser({ ...props.user, saldo: res.conta.saldo })
+                )
+        }
     }, [])
 
     return (<div>
@@ -19,7 +26,7 @@ const Extrato = (props) => {
         <p>{`Saldo: ${props.user.saldo}`}</p>
         {props.user.papel === "aluno" && <>
             <h2>Resgates</h2>
-            {resgates?.map((resg, i) => <p>{`${i + 1} - Valor: ${resg.vantagem.valor} - Descricao: ${resg.vantagem.descricao} - Empresa: ${resg.empresa.nome}`}</p>)}
+            {resgates ?.map((resg, i) => <p>{`${i + 1} - Valor: ${resg.vantagem.valor} - Descricao: ${resg.vantagem.descricao} - Empresa: ${resg.empresa.nome}`}</p>)}
         </>}
     </div>)
 }

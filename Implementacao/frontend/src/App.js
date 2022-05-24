@@ -40,8 +40,6 @@ const App = () => {
 
   useEffect(() => setUpdate(!update), [JSON.stringify(user)])
 
-  console.log('page', user, page)
-
   return (
     <ThemeProvider theme={createTheme()}>
       <Arwes>
@@ -64,10 +62,10 @@ const App = () => {
                 {user.papel === "aluno" && <div style={styling} onClick={() => setPage("listaDeVantagens")}>Lista de Vantagens</div>}
                 <div style={styling} onClick={() => request()}>Logout</div>
               </div>
-              {page === "extrato" && <Extrato user={user}/>}
+              {page === "extrato" && <Extrato user={user} setUser={setUser}/>}
               {page === "vantagem" && <Crud oQue={page} user={user} />}
               {page === "transferencia" && <Transferencia user={user} />}
-              {page === "listaDeVantagens" && <ListaDeVantagens user={user} setUser={setUser}/>}
+              {page === "listaDeVantagens" && <ListaDeVantagens user={user} />}
             </>
             }
           </div>

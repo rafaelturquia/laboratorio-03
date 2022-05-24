@@ -28,7 +28,7 @@ public class AlunoController {
     @Autowired
     private TransferenciaDePontosRepository trasnferenciaRepository;
 
-    @PostMapping(path="/") // Map ONLY POST Requests
+    @PostMapping(path="/")
     public @ResponseBody String addNew (@RequestBody Aluno aluno) throws URISyntaxException {
         Conta conta = new Conta();
         contaRepository.save(conta);
@@ -42,8 +42,8 @@ public class AlunoController {
         return alunoRepository.findAll();
     }
 
-    @GetMapping("/{id}")
-    public Aluno getOne(@PathVariable Integer id) {
+    @GetMapping(path = "/{id}")
+    public @ResponseBody Aluno getOne(@PathVariable Integer id) {
         return alunoRepository.findById(id).orElseThrow(RuntimeException::new);
     }
 
