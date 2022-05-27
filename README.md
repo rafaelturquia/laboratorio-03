@@ -8,6 +8,8 @@
 
 - [Diagrama de Classes e Pacotes](#diagrama-de-classes-e-pacotes)
 
+- [Diagrama de Classes e Pacotes - Atual](#diagrama-de-classes-e-pacotes-atual)
+
 - [Diagrama de Componentes](#diagrama-de-componentes)
 
 - [Diagrama de Implantação](#diagrama-de-implantação)
@@ -49,6 +51,10 @@ Sistema de Moeda Estudantil.
 ## Diagrama de classes e pacotes
 
 ![Diagrama_de_classe_e_Pacotes](./projeto/Print%20-%20Diagrama%20de%20Pacotes%20e%20Classes.png)
+
+## Diagrama de classes e pacotes - Atual
+
+![Diagrama_de_classe_e_Pacotes](./projeto/Print%20-%20Diagrama%20de%20Pacotes%20e%20Classes%20-%20Atual.png)
 
 
 ## Diagrama de Componentes
