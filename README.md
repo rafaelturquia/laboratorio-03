@@ -166,6 +166,8 @@ SD Cadastro de Vantagem - UC10
 SD Listar Vantagens - UC10
 ![SD Listar Vantagens - UC10](./projeto/Diagrama%20de%20Sequencia/SD%20Listar%20Vantagens%20UC02.png)
 
+SD Aluno - Resgatar Vantagem - UC02
+![SD Aluno - Resgatar Vantagem - UC02](./projeto/Diagrama%20de%20Sequencia/SD%20Aluno%20-%20Resgatar%20Vantagem%20-%20UC02.png)
 
 
 
