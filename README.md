@@ -26,6 +26,11 @@ Sistema de Moeda Estudantil.
 
 Tem por objetivo estimular o reconhecimento do mérito estudantil através de uma moeda virtual. Essa moeda pode ser distribuída por professores aos seus alunos e trocada pelos alunos por produtos e descontos em empresas parceiras.
 
+## Sprint.1 - Configuração de ambiente e criação do primeiro teste no projeto
+
+As configurações do ambiente de desenvolvimento para criação de teste utilizando as ferramentas do github.
+
+
 ## Diagrama de Caso de Uso
 
 ![Diagrama_CasoDeUso](./projeto/Print%20-%20Diagrama%20de%20caso%20de%20Uso.png)
