@@ -24,6 +24,8 @@
 
 Sistema de Moeda Estudantil.
 
+Tem por objetivo estimular o reconhecimento do mérito estudantil através de uma moeda virtual. Essa moeda pode ser distribuída por professores aos seus alunos e trocada pelos alunos por produtos e descontos em empresas parceiras.
+
 ## Diagrama de Caso de Uso
 
 ![Diagrama_CasoDeUso](./projeto/Print%20-%20Diagrama%20de%20caso%20de%20Uso.png)
